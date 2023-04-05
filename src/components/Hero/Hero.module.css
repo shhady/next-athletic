@@ -1,0 +1,41 @@
+.hero {
+  
+    /* padding: 6rem; */
+    width: 100%;
+    min-height: 70vh;
+    background-image: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .coverMain{
+    width: 100%;
+    height: 70vh;
+    background-color: rgba(1,1,1,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .TODAY{
+    color:yellow;
+    background: transparent;
+  }
+  .TITLE{
+    text-align: center;
+    font-size: 50px;
+    background: transparent;
+  }
+  
+  .joinNow{
+    margin-top: 40px;
+    background-color: yellow;
+    color: black;
+    height: 40px;
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: bold;
+    padding:10px 20px
+  }

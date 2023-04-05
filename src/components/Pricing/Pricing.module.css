@@ -1,0 +1,72 @@
+.prices{
+    padding: 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.PriceCards{
+    border: 1px solid grey;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.swiper{
+    height: 70vh;
+    width: 90vw;
+    max-width: 1000px;
+    margin-top: 40px;
+    margin: auto;
+}
+.divImageSwiperWomen{
+    width: 100%;
+    height: 70vh;
+    /* position: static; */
+    background-image: url("/w-t-p.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+    -moz-box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+    box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+    border-radius: 20%;
+    
+}
+.divImageSwiperMen{
+    width: 100%;
+    height: 70vh;
+    /* position: static; */
+    background-image: url("/m-t-p.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+-moz-box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+box-shadow: inset 3px 13px 35px 26px rgba(0,0,0,1);
+border-radius: 20%
+}
+
+@media (max-width:768px) {
+    .prices{
+        padding: 10px 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .swiper{
+        height: 70vh;
+        width: 100vw;
+        max-width: 1000px;
+        margin-top: 40px;
+        margin: auto;
+    }
+    .divImageSwiperWomen{
+        margin-top: -50px;
+    }
+    .divImageSwiperMen{
+        margin-top: -50px;
+    }
+}

@@ -1,0 +1,26 @@
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.nameAndDes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.middleInput{
+    margin: 15px 0px;
+}
+
+
+@media (max-width:768px) {
+    .form{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+}

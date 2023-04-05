@@ -1,0 +1,41 @@
+.ABOUTUS{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px;
+
+}
+.heroImage{
+    width: 450px;
+    height: 300px;
+}
+.imageAboutUs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentAboutUs{
+    
+    padding: 10px 20px;
+    text-align: start;
+}
+
+@media (max-width: 868px) {
+    .ABOUTUS{
+        display:flex;
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
+    .contentAboutUs{
+        margin-bottom: 30px;
+    }
+    .imageAboutUs{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .heroImage{
+        width: 100%;
+        height: 300px;
+    }
+}

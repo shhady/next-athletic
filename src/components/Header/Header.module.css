@@ -1,0 +1,54 @@
+.header{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+.headerMiddle{
+    width: 35vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.instagram{
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger{
+    display: none;
+}
+.headerMenu{
+    position: fixed;
+    top:0;
+    right:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    margin: auto;
+    /* z-index: 2; */
+}
+
+@media (max-width:768px) {
+ .headerMiddle{
+    display: none;
+ }   
+ .instagram{
+    margin-right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger{
+    display: block;
+    margin-left: 15px;
+}
+.menuC{
+    margin-top: 30px;
+    /* direction: rtl; */
+  text-align: center;
+}
+}

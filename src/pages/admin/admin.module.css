@@ -1,0 +1,68 @@
+
+.adminContainer{
+    width: 85vw;
+    margin: 40px auto;
+}
+.AddTrainerBtn{
+    width: fit-content;
+    padding: 10px 25px;
+    margin-top: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none
+}
+.AddTrainerBtn:hover{
+    background-color: rgb(238, 233, 224);
+    color:black;
+    transition: all .3s ease-in-out;
+    
+}
+.addbtndiv{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3px
+}
+.adminFilterBTN{
+    width: fit-content;
+    margin: auto;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    
+}
+.adminFilterBTN:hover{
+    background-color: rgb(238, 233, 224);
+    color:black;
+    transition: all .3s ease-in-out;
+}
+.btns{
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    gap: 3px;
+}
+.forms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+
+@media (max-width:600px) {
+    .addbtndiv{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 3px
+    }
+}

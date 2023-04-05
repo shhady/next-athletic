@@ -1,0 +1,33 @@
+.whyUsContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 100px;
+}
+.whyuscards{
+    padding: 15px 60px;
+    display: flex;
+}
+
+.whyuscardsContent{
+    margin-right: 15px;
+}
+
+.whyUsContainer{
+    background-color: rgba(32, 31, 31, 0.466);
+}
+@media (max-width: 768px) {
+    .whyUsContent{
+        display: grid;
+    grid-template-columns: 1fr;
+    padding: 0px 10px;
+    }
+    .whyuscards{
+        width: 100%;
+        padding: 10px 0px;
+        /* display: flex; */
+        
+    }
+    .whyuscardsContent{
+        width: 90%;
+    }
+}
