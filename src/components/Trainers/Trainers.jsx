@@ -7,21 +7,23 @@ const fetcher = (...args)=> fetch(...args).then(res => res.json())
 
 export default function Trainers() {
     const {user, isLoading, isError} = getData()
-
+    
     if(isError) return <div>error</div>
     if(isLoading) return <div>loading ... </div>
-     console.log(user)
+        const trainers = user?.filter(u=>u.role === 'trainer');
+        console.log(trainers)
+    
   return (
     <div>
-        <p style={{textAlign:"center", color:"yellow", marginTop:"30px"}}>צוות מאמנים מקצועי מומחים בתחומם</p>
+        <p className={styles.parag}>צוות מאמנים מקצועי מומחים בתחומם</p>
     <h1 style={{marginBottom:"30px", textAlign:"center"}}>מאמנים</h1>
     <div className={styles.trainersHome} dir='rtl'>
-        {user.map((user)=>(
-            <Link href={`/trainers/${user.id}`}  key={user.id}>
-            <div>
-                <Image src={user.image} width={200} height={200} style={{borderRadius:"50%"}} alt={user.name}/>
+        {trainers.map((user)=>(
+            <Link href={`/users/${user._id}`}  key={user._id}>
+            <div className={styles.imgAndText}>
+                <Image src={user.avatar} width={150} height={150} style={{borderRadius:"50%"}} alt={user.name}/>
                 <h3>{user.name}</h3>
-                <p>{user.description}</p>
+                {/* <p>{user.description}</p> */}
             </div>
             </Link>
         ))}
@@ -31,7 +33,7 @@ export default function Trainers() {
 }
 
 function getData (){
-    const {data, error} = useSWR("http://localhost:3001/api/trainers",fetcher)
+    const {data, error} = useSWR("http://localhost:3000/api/users",fetcher)
 
     return{
         user:data,

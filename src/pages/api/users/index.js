@@ -1,5 +1,5 @@
 import main from "../../../../database/connection"
-import {getUsers, postUser} from "../../../../database/controller"
+import {getUsers, postUser,putUser, deleteUser} from "../../../../database/controller"
 export default async function handler(req, res) {
     main().catch(()=> res.status(405).json({error:"error connecting"}))
 
@@ -13,12 +13,12 @@ export default async function handler(req, res) {
                 postUser(req,res)
             // res.status(200).json({method, name:'post'});
             break;
-            case "PUT":
-            res.status(200).json({method, name:'put'});
-            break;
-            case "DELETE":
-            res.status(200).json({method, name:'delete'});
-            break;
+            // case "PUT":
+            //     putUser(req,res)
+            // break;
+            // case "DELETE":
+            //     deleteUser(req,res)
+            // break;
 
             default:
                 res.setHeader("allow",["GET", "POST", "PUT", "DELETE"])

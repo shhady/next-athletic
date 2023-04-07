@@ -25,7 +25,7 @@
     position: fixed;
     top:0;
     right:0;
-    width: 100vw;
+    width: 60vw;
     height: 100vh;
     background-color: black;
     margin: auto;
@@ -36,6 +36,9 @@
  .headerMiddle{
     display: none;
  }   
+ .logIn{
+    display: none;
+ }
  .instagram{
     margin-right: 13px;
     display: flex;
@@ -49,6 +52,11 @@
 .menuC{
     margin-top: 30px;
     /* direction: rtl; */
+    margin-right: 40px;
   text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap:10px
 }
 }

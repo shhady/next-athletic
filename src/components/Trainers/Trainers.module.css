@@ -7,6 +7,19 @@
         overflow-x: scroll;
 }
 
+.parag{
+text-align: center;
+color: yellow;
+margin-top: 70px ;
+}
+.imgAndText{
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media (max-width:768px) {
     .trainersHome{
         margin: auto;
@@ -15,5 +28,10 @@
             display: flex;
             overflow-x: scroll;
     }
+    .parag{
+        text-align: center;
+        color: yellow;
+        margin-top:0px ;
+        }
     
 }

@@ -8,9 +8,10 @@ export default function Hero() {
      תתחיל את <br/>  המסע שלך 
      <span className={styles.TODAY}> היום</span>
     </h1>
-    <p style={{background:"transparent"}}>   ותתחיל להתקרב לגוף שחלמת עליו ATHLETIC תצטרף ל</p>
+    <p style={{background:"transparent", textAlign:'center'}}>תהפוך את הגוף ותשדרג את הכושר. הצטרף עכשיו לחוויה שתשנה את חייך!
+</p>
     <div>
-     <button className={styles.joinNow}>תצטרף עכשיו</button>
+     <button className={styles.joinNow}>צור קשר</button>
     </div>
     </div>
     </div>

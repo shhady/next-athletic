@@ -2,7 +2,7 @@ import {models, Schema, model} from "mongoose";
 
 const userSchema = Schema(
     {
-      role: { type: String, default: "trainer" },
+      role: { type: String, default: "user" },
       name: { type: String, required: true, trim: true },
       email: {
         type: String,
@@ -19,6 +19,10 @@ const userSchema = Schema(
       password: { type: String, required: true, minlength: 5, trim: true },
       description:{ type: String},
       confirmPassword: { type: String, required: true, minlength: 5, trim: true },
+      avatar:{type: String},
+      paidDate:{type: Date},
+      paidPeriod:{type:Number},
+      telephone:{type:Number}
     //   tokens: [
     //     {
     //       token: {
