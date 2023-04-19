@@ -6,16 +6,20 @@ import Image from 'next/image'
 import fetcher from '../../../lib/fetcher'
 import { useRouter } from 'next/router'
 import { SWRConfig } from 'swr'
+import useSWR from "swr"
 
 
 export default function Trainer ({fallback}){
   const router = useRouter()
   const {id} = router.query
-  console.log(id)
-const {data, isLoading, isError} = fetcher(`api/users/${id}`)
 
-if(isError) return <div>error</div> 
-if(isLoading) return <div>loading ... </div>
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  return data;
+};
+console.log(id)
+const { data, error } = useSWR(`http://localhost:5000/users/${id}`, fetcher);
 console.log(data)
 return(
 
@@ -43,27 +47,27 @@ function Artice({name, avatar, description}) {
   )
 }
 
-export async function getStaticProps({ params }) {
-  console.log('params.id:', params.id);
-  const trainer = await getUsers(params.id);
-  console.log('trainer:', trainer);
-  return {
-    props: {
-      fallback:{
-        'api/users': trainer
-      }
-    },
-  };
-}
-export async function getStaticPaths(){
-  const trainer = await getUsers()
+// export async function getStaticProps({ params }) {
+//   console.log('params.id:', params.id);
+//   const trainer = await getUsers(params.id);
+//   console.log('trainer:', trainer);
+//   return {
+//     props: {
+//       fallback:{
+//         'api/users': trainer
+//       }
+//     },
+//   };
+// }
+// export async function getStaticPaths(){
+//   const trainer = await getUsers()
 
-  const paths = trainer.map((value)=>{
-      return {
-          params: {
-            id:value._id.toString()
-      }}
-  })
-  return {paths, 
-  fallback: false}
-}
+//   const paths = trainer.map((value)=>{
+//       return {
+//           params: {
+//             id:value._id.toString()
+//       }}
+//   })
+//   return {paths, 
+//   fallback: false}
+// }

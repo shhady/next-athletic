@@ -3,8 +3,21 @@
     width: 90%;
     margin: auto;
     display: flex;
+    height: 20rem;
     /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-    gap:10px;
+    gap:1rem;
+}
+.gallery > div{
+   flex: 1;
+   border-radius: 1rem;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: auto 100%;
+   transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+}
+.gallery > div:hover{
+    flex: 5;
+    /* background-size: contain; */
 }
 .pictureFromGallery{
     /* height: 40vh; */
@@ -32,6 +45,21 @@
         max-width: 95vw;
         display: flex;
         overflow-x: scroll;
+    }
+    .gallery > div{
+        min-width:100px;
+        flex: 1;
+        border-radius: 1rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+     }
+     .gallery > div:hover{
+        flex: 5;
+        min-width: 250px;
+            /* background-size: contain; */
+
     }
     .galleryPhoto{
         width: 100px;

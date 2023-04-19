@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: black;
+    height:8vh
 }
 .headerMiddle{
     width: 35vw;
@@ -32,6 +33,11 @@
     /* z-index: 2; */
 }
 
+.instagramI{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media (max-width:768px) {
  .headerMiddle{
     display: none;
@@ -45,9 +51,18 @@
     justify-content: center;
     align-items: center;
 }
+.instagramI{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .hamburger{
     display: block;
     margin-left: 15px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:15px
 }
 .menuC{
     margin-top: 30px;

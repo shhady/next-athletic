@@ -1,30 +1,41 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import Format from '@/layout/format';
 import styles from './trainers.module.css'
 // import getTrainers from '../../../lib/helper';
 import fetcher from '../../../lib/fetcher';
-// import useSWR from "swr"
+import useSWR from "swr"
 // const fetcher = (...args)=> fetch(...args).then(res => res.json())
 export default function trainers() {
-    const {data, isLoading, isError} = fetcher('api/users');
-    console.log(data)
-
+    // const {data, isLoading, isError} = fetcher('api/users');
+    // console.log(data)
+    const [coaches, setCoaches] = useState([])
+    const fetcher = async (url) => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    };
+    
+    const { data, error } = useSWR('http://localhost:5000/users', fetcher);
+    console.log(coaches)
+    useEffect(()=>{
+      setCoaches(data?.filter((user)=> user.role === 'coach' ))
+    },[data])
     // const {user, isLoading, isError} = getData()
     // getTrainers().then(res => console.log(res))
-    if(isError) return <div>error</div>
-    if(isLoading) return <div>loading ... </div>
-    const trainers = data?.filter(u=>u.role === 'trainer');
-    console.log(trainers)
-    //  console.log(user)
+    // if(isError) return <div>error</div>
+    // // if(isLoading) return <div>loading ... </div>
+    // const trainers = data?.filter(u=>u.role === 'trainer');
+    // console.log(trainers)
+    // //  console.log(user)
   return (
     <Format>
         <h1 style={{textAlign:"center", margin:"20px"}}>המאמנים</h1>
         <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:"center", gap:"20px"}}>
         {
-        trainers.map((value, index)=>(
-            <Trainer data={value} key={index}></Trainer>
+        coaches?.map((coach, index)=>(
+            <Trainer coaches={coach} key={index}></Trainer>
             // <Link key={t.id} href={`/trainers/${t.id}`}>
             // <div
             // style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}
@@ -44,8 +55,8 @@ export default function trainers() {
 }
 
 
-function Trainer ({data}){
-    const {_id, avatar, name, description} = data
+function Trainer ({coaches}){
+    const {_id, avatar, name, description} = coaches
 return (
         <Link key={_id} href={`/users/${_id}`}>
         <div

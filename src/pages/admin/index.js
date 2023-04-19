@@ -1,15 +1,43 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Format from '@/layout/format';
 import styles from "./admin.module.css"
 import FormTrainer from "../../components/forms/trainerForm/formTrainer"
 import AddPicture from "../../components/forms/addPicture/addPicture"
-import ClassForm from '@/components/forms/ClassForm/classForm';
+import ClassForm from '@/components/forms/addClass/classForm';
 import FormUser from "../../components/forms/addUser/formUser"
 import TrainersTable from '@/components/tables/trainersTable';
 import UsersTable from '@/components/tables/usersTable';
-
+import ClassesTable from '@/components/tables/classesTable';
+import { io } from "socket.io-client";
 
 export default function Admin() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userProfile = localStorage.getItem("profile");
+      if (userProfile) {
+        setUser(JSON.parse(userProfile));
+      }
+    }
+  }, []);
+
+  const [socket, setSocket] = useState(null);
+
+  useEffect(() => {
+    if (!user?._id) return;
+    setSocket(
+      io(
+        // "https://dawrafun1.herokuapp.com/" ||
+        "http://localhost:5000"
+      )
+    );
+    // console.log(socket);
+  }, [user]);
+  useEffect(() => {
+    if (!user?._id) return;
+    socket?.emit("addUser", user?._id);
+  }, [socket, user]);
 
   
   const [btnClicked, setBtnClicked] = useState(false);
@@ -96,8 +124,8 @@ export default function Admin() {
         <button className={styles.adminFilterBTN}  onClick={(e)=>showTableClasses(e)}>חוגים</button>
       </div>
       {btnClicked === 'מאמנים' &&<TrainersTable />}
-      {btnClicked === 'לקוחות' &&<UsersTable setBtnClicked={setBtnClicked} />}
-      
+      {btnClicked === 'לקוחות' &&<UsersTable setBtnClicked={setBtnClicked} socket={socket}/>}
+      {btnClicked === 'חוגים' &&<ClassesTable setBtnClicked={setBtnClicked} />}
       </div>
     </Format>
   )

@@ -11,8 +11,10 @@ export default function format({children}) {
         <link rel="icon" href="/logoTitle.png" />
         </Head>
             <Header/>
-            <main>{children}</main>
-            <Footer/>
+            <main style={{minHeight:"80vh"}}>{children}</main>
+            <div>
+            <Footer />
+            </div>
     </div>
   )
 }

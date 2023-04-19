@@ -10,7 +10,7 @@ export default function Trainers() {
     
     if(isError) return <div>error</div>
     if(isLoading) return <div>loading ... </div>
-        const trainers = user?.filter(u=>u.role === 'trainer');
+        const trainers = user?.filter(u=>u.role === 'coach');
         console.log(trainers)
     
   return (
@@ -33,7 +33,7 @@ export default function Trainers() {
 }
 
 function getData (){
-    const {data, error} = useSWR("http://localhost:3000/api/users",fetcher)
+    const {data, error} = useSWR("http://localhost:5000/users",fetcher)
 
     return{
         user:data,
